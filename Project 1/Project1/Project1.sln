@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project1.TestSuite", "Project1.TestSuite\Project1.TestSuite.csproj", "{AEAFB4C4-AEEC-4B67-9613-2600D90AE071}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project1", "Project1\Project1.csproj", "{6EA9DAE9-46B9-45ED-A638-D5D69329E0D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestAdapter", "TestAdapter\TestAdapter.csproj", "{2FD32494-FCED-4EFB-8F4A-974B613C4442}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AEAFB4C4-AEEC-4B67-9613-2600D90AE071}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEAFB4C4-AEEC-4B67-9613-2600D90AE071}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEAFB4C4-AEEC-4B67-9613-2600D90AE071}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEAFB4C4-AEEC-4B67-9613-2600D90AE071}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EA9DAE9-46B9-45ED-A638-D5D69329E0D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EA9DAE9-46B9-45ED-A638-D5D69329E0D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EA9DAE9-46B9-45ED-A638-D5D69329E0D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EA9DAE9-46B9-45ED-A638-D5D69329E0D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FD32494-FCED-4EFB-8F4A-974B613C4442}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FD32494-FCED-4EFB-8F4A-974B613C4442}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FD32494-FCED-4EFB-8F4A-974B613C4442}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FD32494-FCED-4EFB-8F4A-974B613C4442}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(SpecExplorer.ActivityCompletionStatus) = preSolution
+		SpecExplorer.ActivityCompletionStatus = TestExisting: ;ModelFromScratch: 
+	EndGlobalSection
+EndGlobal

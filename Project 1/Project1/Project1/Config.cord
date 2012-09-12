@@ -1,0 +1,21 @@
+﻿// This is a Spec Explorer coordination script (Cord version 1.0).
+// Here you define configurations and machines describing the
+// exploration task you want to perform.
+using TestAdapter;
+
+/// Contains actions of the model, bounds, and switches.
+config Main 
+{
+    action abstract static void AdapterClass.InitializeTestAdapter();
+    action abstract static void AdapterClass.AdapterSendReadRequest();
+    action abstract static void AdapterClass.AdapterReceiveDataBlock();
+    action abstract static void AdapterClass.AdapterSendACK();
+    action abstract static void AdapterClass.AdapterCanGetExit(int len);
+    action abstract static void AdapterClass.AdapterSendWriteRequest();
+    action abstract static void AdapterClass.AdapterSendDataBlock();
+    action abstract static void AdapterClass.AdapterReceiveACK();
+    action abstract static void AdapterClass.AdapterCanPutExit(int len);
+
+    switch GeneratedTestPath = "..\\Project1.TestSuite";
+}
+    
