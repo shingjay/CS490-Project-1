@@ -6,14 +6,10 @@ using Microsoft.Modeling;
 using TFTPClientNameSpace;
 
 namespace Project1
-{
-    // model 
-
-    /// <summary>
-    /// An example model program.
-    /// </summary>
+{   
     static class ModelProgram
     {
+        // state variable
         static TFTPClient.FSM_Modes mode;
 
         [Rule(Action = "InitializeTestAdapter()")]
@@ -64,7 +60,7 @@ namespace Project1
             mode = TFTPClient.FSM_Modes.ACK_RECEIVED;
         }
 
-        [Rule(Action = "AdapterCanPutExit(len)")]
+        [Rule(Action = "AdapterCanPutExit(len)/result")]
         static bool CanPutExit(int len)
         {
             Condition.IsTrue(mode == TFTPClient.FSM_Modes.DATA_SENT);
@@ -76,7 +72,7 @@ namespace Project1
             return false;
         }
 
-        [Rule(Action = "AdapterCanGetExit(len)")]
+        [Rule(Action = "AdapterCanGetExit(len)/result")]
         static bool CanGetExit(int len)
         {
             Condition.IsTrue(mode == TFTPClient.FSM_Modes.DATA_RECEIVED);

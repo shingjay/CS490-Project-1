@@ -5,7 +5,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project1.TestSuite", "Proje
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project1", "Project1\Project1.csproj", "{6EA9DAE9-46B9-45ED-A638-D5D69329E0D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestAdapter", "TestAdapter\TestAdapter.csproj", "{2FD32494-FCED-4EFB-8F4A-974B613C4442}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project1.TestAdapter", "TestAdapter\Project1.TestAdapter.csproj", "{2FD32494-FCED-4EFB-8F4A-974B613C4442}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,6 +30,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(SpecExplorer.ActivityCompletionStatus) = preSolution
-		SpecExplorer.ActivityCompletionStatus = TestExisting: ;ModelFromScratch: 
+		SpecExplorer.ActivityCompletionStatus = TestExisting: ;ModelFromScratch: WriteRules DeclareActions
 	EndGlobalSection
 EndGlobal

@@ -5,7 +5,7 @@ using System.Text;
 
 using TFTPClientNameSpace;
 
-namespace TestAdapter
+namespace Project1.TestAdapter
 {
     public class AdapterClass
     {
@@ -30,8 +30,9 @@ namespace TestAdapter
         {
         }
 
-        static void AdapterCanGetExit(int len)
+        static bool AdapterCanGetExit(int len)
         {
+            return true;
         }
 
         static void AdapterSendWriteRequest()
@@ -47,8 +48,9 @@ namespace TestAdapter
         {
         }
 
-        static void AdapterCanPutExit(int len)
+        static bool AdapterCanPutExit(int len)
         {
+            return true;
         }
     }
 }
