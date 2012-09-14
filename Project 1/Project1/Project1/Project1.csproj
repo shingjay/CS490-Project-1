@@ -58,4 +58,10 @@
       <HintPath>..\..\TFTPclientDllBuggy.dll</HintPath>
     </Reference>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TestAdapter\Project1.TestAdapter.csproj">
+      <Project>{2FD32494-FCED-4EFB-8F4A-974B613C4442}</Project>
+      <Name>Project1.TestAdapter</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>

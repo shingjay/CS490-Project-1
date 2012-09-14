@@ -16,6 +16,30 @@ config Main
     action abstract static void AdapterClass.AdapterReceiveACK();
     action abstract static bool AdapterClass.AdapterCanPutExit(int len);
 
+    switch StepBound = 128;
+    switch PathDepthBound = 128;
+    switch TestClassBase = "vs";
     switch GeneratedTestPath = "..\\Project1.TestSuite";
     switch ForExploration = false;
+    switch TestEnabled = false;
+}
+
+config ParameterConfig : Main
+{
+    action abstract static bool AdapterClass.AdapterCanGetExit(int len) 
+        where 
+        {.
+            Condition.In(len, 0, 16, 64, 128, 512, 516, 1024);
+        .};
+
+    action abstract static bool AdapterClass.AdapterCanPutExit(int len)
+        where 
+        {.
+            Condition.In(len, 0, 16, 64, 128, 512, 516, 1024);
+        .};
+}
+
+machine Program() : Main 
+{
+    
 }
