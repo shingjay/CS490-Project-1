@@ -1,0 +1,36 @@
+
+<!-- saved from url=(0130)https://raw.github.com/jamesma/SoftwareTestingSpecExplorer/master/.gitignore?login=shingjay&token=0c5cfaa669efcb460d0debe19593768d -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body><pre style="word-wrap: break-word; white-space: pre-wrap;">
+#ignore thumbnails created by windows
+Thumbs.db
+#Ignore files build by Visual Studio
+*.obj
+*.exe
+*.pdb
+*.user
+*.aps
+*.pch
+*.vspscc
+*_i.c
+*_p.c
+*.ncb
+*.suo
+*.tlb
+*.tlh
+*.bak
+*.cache
+*.ilk
+*.log
+[Bb]in
+[Dd]ebug*/
+*.lib
+*.sbr
+obj/
+[Rr]elease*/
+_ReSharper*/
+[Tt]est[Rr]esult*
+#Ignore test results
+Summary/
+#Ignore explored models
+*.seexpl
+</pre></body></html>
