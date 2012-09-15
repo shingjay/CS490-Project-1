@@ -24,7 +24,7 @@ config Main
     switch TestEnabled = false;
 }
 
-config ParameterConfig : Main
+config ParameterCombination : Main
 {
     action abstract static bool AdapterClass.AdapterCanGetExit(int len) 
         where 
@@ -39,7 +39,30 @@ config ParameterConfig : Main
         .};
 }
 
-machine Program() : Main 
+machine DefaultProgram() : Main where ForExploration = true     
 {
-    
+    construct model program from ParameterCombination
+    where scope = "Project1.ModelProgram"
 }
+
+// send data block
+machine SendProgram() : Main where ForExploration = true
+{
+    InitializeTestAdapter; AdapterSendWriteRequest; AdapterReceiveACK; AdapterSendDataBlock; (AdapterReceiveACK; AdapterSendDataBlock; AdapterCanPutExit;)+     
+}
+
+// receive data block
+machine ReceiveProgram() : Main where ForExploration = true
+{
+    InitializeTestAdapter; AdapterSendReadRequest; AdapterReceiveDataBlock; AdapterSendACK; (AdapterReceiveDataBlock; AdapterSendACK; AdapterCanGetExit;)+
+}
+
+machine SlicedSendProgram() : Main where ForExploration = true
+{
+    SendProgram || ModelProgram
+}
+
+machine SlicedReceiveProgram() : Main where ForExploration = true
+{
+    ReceiveProgram || ModelProgram
+}   

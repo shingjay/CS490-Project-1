@@ -30,6 +30,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(SpecExplorer.ActivityCompletionStatus) = preSolution
-		SpecExplorer.ActivityCompletionStatus = TestExisting: ;ModelFromScratch: WriteRules DeclareActions
+		SpecExplorer.ActivityCompletionStatus = TestExisting: ;ModelFromScratch: CombineParameters SelectScenarios WriteRules DeclareActions
 	EndGlobalSection
 EndGlobal
