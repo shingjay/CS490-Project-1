@@ -59,10 +59,10 @@ machine ReceiveProgram() : Main where ForExploration = true
 
 machine SlicedSendProgram() : Main where ForExploration = true
 {
-    SendProgram || ModelProgram
+    SendProgram || DefaultProgram
 }
 
 machine SlicedReceiveProgram() : Main where ForExploration = true
 {
-    ReceiveProgram || ModelProgram
+    ReceiveProgram || DefaultProgram
 }   
