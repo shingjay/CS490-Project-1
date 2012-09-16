@@ -16,6 +16,8 @@ config Main
     action abstract static void AdapterClass.AdapterReceiveACK();
     action abstract static bool AdapterClass.AdapterCanPutExit(int len);
 
+    action abstract static void AdapterClass.Checker(int state);
+
     switch StepBound = 128;
     switch PathDepthBound = 128;
     switch TestClassBase = "vs";
@@ -39,6 +41,8 @@ config ParameterCombination : Main
         .};
 }
 
+// defining machines
+
 machine DefaultProgram() : Main where ForExploration = true     
 {
     construct model program from ParameterCombination
@@ -57,6 +61,18 @@ machine ReceiveProgram() : Main where ForExploration = true
     InitializeTestAdapter; AdapterSendReadRequest; AdapterReceiveDataBlock; AdapterSendACK; (AdapterReceiveDataBlock; AdapterSendACK; AdapterCanGetExit;)+
 }
 
+// send&receive checkers
+machine SendProgramWithCheckers() : Main where ForExploration = true
+{
+    InitializeTestAdapter; AdapterSendWriteRequest; AdapterReceiveACK; AdapterSendDataBlock; (AdapterReceiveACK; AdapterSendDataBlock; AdapterCanPutExit;)+ ||| Checker*    
+}
+
+machine ReceiveProgramWithCheckers() : Main where ForExploration = true
+{
+    InitializeTestAdapter; AdapterSendReadRequest; AdapterReceiveDataBlock; AdapterSendACK; (AdapterReceiveDataBlock; AdapterSendACK; AdapterCanGetExit;)+ ||| Checker*
+}
+
+// slicing the scenarios    
 machine SlicedSendProgram() : Main where ForExploration = true
 {
     SendProgram || DefaultProgram
@@ -65,4 +81,37 @@ machine SlicedSendProgram() : Main where ForExploration = true
 machine SlicedReceiveProgram() : Main where ForExploration = true
 {
     ReceiveProgram || DefaultProgram
-}   
+}
+
+// slicing scenarios with checkers
+machine SlicedSendProgramWithCheckers() : Main where ForExploration = true
+{
+    SendProgramWithCheckers || DefaultProgram
+}
+
+machine SlicedReceiveProgramWithCheckers() : Main where ForExploration = true
+{
+    ReceiveProgramWithCheckers || DefaultProgram
+}
+
+// constructing test cases  
+machine SendTestSuite() : Main where ForExploration = true, TestEnabled = true
+{
+    construct test cases where strategy = "ShortTests" for SlicedSendProgram()
+}
+
+machine ReceiveTestSuite() : Main where ForExploration = true, TestEnabled = true
+{
+    construct test cases where strategy = "ShortTests" for SlicedReceiveProgram()
+}
+
+// test cases with checkers
+machine SendWithCheckersTestSuite() : Main where ForExploration = true, TestEnabled = true
+{
+    construct test cases where strategy = "ShortTests" for SlicedSendProgramWithCheckers()
+}
+
+machine ReceiveWithCheckersTestSuite() : Main where ForExploration = true, TestEnabled = true
+{
+    construct test cases where strategy = "ShortTests" for SlicedReceiveProgramWithCheckers()
+}

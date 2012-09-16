@@ -83,5 +83,11 @@ namespace Project1
             }
             return false;
         }
+
+        [Rule]
+        static void Checker(int state)
+        {
+            Condition.IsTrue((int)mode == state);
+        }
     }
 }
