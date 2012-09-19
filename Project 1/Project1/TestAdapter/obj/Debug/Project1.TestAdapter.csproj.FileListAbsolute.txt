@@ -4,9 +4,3 @@ C:\Users\Jay\Documents\GitHub\CS490Testing-Project-1\Project 1\Project1\TestAdap
 C:\Users\Jay\Documents\GitHub\CS490Testing-Project-1\Project 1\Project1\TestAdapter\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Jay\Documents\GitHub\CS490Testing-Project-1\Project 1\Project1\TestAdapter\obj\Debug\TestAdapter.dll
 C:\Users\Jay\Documents\GitHub\CS490Testing-Project-1\Project 1\Project1\TestAdapter\obj\Debug\TestAdapter.pdb
-C:\Users\Sulin\Documents\GitHub\CS490Testing-Project-1\Project 1\Project1\TestAdapter\bin\Debug\TestAdapter.dll
-C:\Users\Sulin\Documents\GitHub\CS490Testing-Project-1\Project 1\Project1\TestAdapter\bin\Debug\TestAdapter.pdb
-C:\Users\Sulin\Documents\GitHub\CS490Testing-Project-1\Project 1\Project1\TestAdapter\bin\Debug\TFTPclientDllBuggy.dll
-C:\Users\Sulin\Documents\GitHub\CS490Testing-Project-1\Project 1\Project1\TestAdapter\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\Sulin\Documents\GitHub\CS490Testing-Project-1\Project 1\Project1\TestAdapter\obj\Debug\TestAdapter.dll
-C:\Users\Sulin\Documents\GitHub\CS490Testing-Project-1\Project 1\Project1\TestAdapter\obj\Debug\TestAdapter.pdb
