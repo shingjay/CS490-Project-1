@@ -70,33 +70,43 @@ namespace Project1.TestAdapter
 
         static void AdapterReceiveDataBlock()
         {
+            byte[] rcvBuffer;
+            client.receiveDataBlock(out rcvBuffer);
+
         }
 
         static void AdapterSendACK()
         {
+            client.sendACK();
         }
 
         static bool AdapterCanGetExit(int len)
         {
-            return true;
+            return client.canGetExit(len);
         }
 
         static void AdapterSendWriteRequest()
         {
-
+            byte[] sndBuffer;
+            client.sendWriteRequest(remoteFile, localFile, TFTPClient.Modes.NetAscii, out sndBuffer);
         }
 
         static void AdapterSendDataBlock()
         {
+
+            //byte[] sndBuffer;
+            //client.sendDataBlock(fileStream, out sndBuffer);
         }
 
         static void AdapterReceiveACK()
         {
+            byte[] rcvBuffer;
+            client.receiveACK(out rcvBuffer);
         }
 
         static bool AdapterCanPutExit(int len)
         {
-            return true;
+            return client.canPutExit(len);
         }
     }
 }
