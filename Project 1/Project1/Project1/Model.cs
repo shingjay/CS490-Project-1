@@ -64,7 +64,7 @@ namespace Project1
         static bool CanPutExit(int len)
         {
             Condition.IsTrue(mode == TFTPClient.FSM_Modes.DATA_SENT);
-            if (len > 516)
+            if (len < 516)
             {
                 mode = TFTPClient.FSM_Modes.EXIT;
                 return true;
@@ -76,7 +76,7 @@ namespace Project1
         static bool CanGetExit(int len)
         {
             Condition.IsTrue(mode == TFTPClient.FSM_Modes.DATA_RECEIVED);
-            if (len > 516)
+            if (len < 516)
             {
                 mode = TFTPClient.FSM_Modes.EXIT;
                 return true;

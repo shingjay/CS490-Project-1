@@ -41,6 +41,10 @@
   </Target>
   -->
   <ItemGroup>
+    <Compile Include="ReceiveTestSuite.cs" />
+    <Compile Include="ReceiveWithCheckersTestSuite.cs" />
+    <Compile Include="SendTestSuite.cs" />
+    <Compile Include="SendWithCheckersTestSuite.cs" />
     <Compile Include="TestSuite.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -56,8 +60,17 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="TFTPclientDllBuggy">
+      <HintPath>..\..\TFTPclientDllBuggy.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TestAdapter\Project1.TestAdapter.csproj">
+      <Project>{2FD32494-FCED-4EFB-8F4A-974B613C4442}</Project>
+      <Name>Project1.TestAdapter</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>

@@ -18,7 +18,7 @@ namespace Project1.TestAdapter
         static string createLocalFilePath()
         {
             // Specify a "currently active folder" 
-            string activeDir = @"C:\Users\Sulin\Documents\Proj1TestDir";
+            string activeDir = @"C:\Users\Jay\Documents\GitHub\CS490Testing-Project-1\Project 1\";
 
             //Create a new subfolder under the current active folder 
             string newPath = System.IO.Path.Combine(activeDir, "SubDir");
@@ -54,16 +54,16 @@ namespace Project1.TestAdapter
         /// State Checker Pattern method(MSDN)
         /// </summary>
         /// <param name="mode"></param>
-        public static void Checker(int state)
+        public static void Checker(int state)   
         {
             Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual
-            (state, (int)client.tftpClientMode, "AdapterClass mismatch: Model vs Implimentation.");
+            (state, (int)client.tftpClientMode, "AdapterClass mismatch: Model vs Implementation.");
         }
 
         /// <summary>
         /// Initialze the TFTP client. Set the state to be INIT
         /// </summary>
-        static TFTPClient InitializeTestAdapter()
+        public static TFTPClient InitializeTestAdapter()
         {
             TFTPClient c = new TFTPClient("127.0.0.1", 69);
             c.initialize();
@@ -78,7 +78,7 @@ namespace Project1.TestAdapter
         /// <param name="remoteFile">The remote file.</param>
         /// <param name="localFile">The local file.</param>
         /// <param name="tftpMode">The TFTP mode, NetAscii, Octet, Mail.</param>
-        static void AdapterSendReadRequest()
+        public static void AdapterSendReadRequest()
         {
             client.sendReadRequest(remoteFile, localFile, TFTPClient.Modes.NetAscii);
         }
@@ -90,7 +90,7 @@ namespace Project1.TestAdapter
         /// <returns>
         /// A int variable that tell the length of the receiving buffer. 
         /// </returns>
-        static void AdapterReceiveDataBlock()
+        public static void AdapterReceiveDataBlock()
         {
             byte[] rcvBuffer;
             client.receiveDataBlock(out rcvBuffer);
@@ -100,7 +100,7 @@ namespace Project1.TestAdapter
         /// <summary>
         /// Send ACK packet to the TFTP server, after successfully receive the data block from the TFTP server. DATA_RECEIVED --> ACK_SENT.
         /// </summary>
-        static void AdapterSendACK()
+        public static void AdapterSendACK()
         {
             client.sendACK();
         }
@@ -112,7 +112,7 @@ namespace Project1.TestAdapter
         /// <returns>
         /// A bool variable indicating whether it is time to successfully exit. It is TRUE for successfully exit, FALSE for staying in the loop and continuing the file transfer. 
         /// </returns>
-        static bool AdapterCanGetExit(int len)
+        public static bool AdapterCanGetExit(int len)
         {
             return client.canGetExit(len);
         }
@@ -124,7 +124,7 @@ namespace Project1.TestAdapter
         /// <param name="localFile">The local file.</param>
         /// <param name="tftpMode">The TFTP mode.</param>
         /// <param name="sndBuffer">The returned sending buffer.</param>
-        static void AdapterSendWriteRequest()
+        public static void AdapterSendWriteRequest()
         {
             byte[] sndBuffer;
             client.sendWriteRequest(remoteFile, localFile, TFTPClient.Modes.NetAscii, out sndBuffer);
@@ -135,7 +135,7 @@ namespace Project1.TestAdapter
         /// </summary>
         /// <param name="fileStream">The file stream for writing the downloading file.</param>
         /// <param name="sndBuffer">The returned sending buffer.</param>
-        static void AdapterSendDataBlock()
+        public static void AdapterSendDataBlock()
         {
             BinaryReader fileStream = new BinaryReader(new FileStream(localFile, FileMode.Open, FileAccess.Read, FileShare.ReadWrite));
             byte[] sndBuffer;
@@ -149,7 +149,7 @@ namespace Project1.TestAdapter
         /// <returns>
         /// A int variable that tell the length of the receiving buffer. 
         /// </returns>
-        static void AdapterReceiveACK()
+        public static void AdapterReceiveACK()
         {
             byte[] rcvBuffer;
             client.receiveACK(out rcvBuffer);
@@ -162,7 +162,7 @@ namespace Project1.TestAdapter
         /// <returns>
         /// A bool variable indicating whether it is time to successfully exit. It is TRUE for successfully exit, FALSE for staying in the loop and continuing the file transfer. 
         /// </returns>
-        static bool AdapterCanPutExit(int len)
+        public static bool AdapterCanPutExit(int len)
         {
             return client.canPutExit(len);
         }

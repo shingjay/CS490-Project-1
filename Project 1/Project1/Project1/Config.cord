@@ -18,10 +18,12 @@ config Main
 
     action abstract static void AdapterClass.Checker(int state);
 
-    switch StepBound = 128;
-    switch PathDepthBound = 128;
+    switch StateBound = none;
+    switch StepBound = 500;
+    switch PathDepthBound = 500;
     switch TestClassBase = "vs";
     switch GeneratedTestPath = "..\\Project1.TestSuite";
+    switch GeneratedTestNamespace = "Project1.TestSuite";
     switch ForExploration = false;
     switch TestEnabled = false;
 }
@@ -31,13 +33,13 @@ config ParameterCombination : Main
     action abstract static bool AdapterClass.AdapterCanGetExit(int len) 
         where 
         {.
-            Condition.In(len, 0, 16, 64, 128, 512, 516, 1024);
+            Condition.In(len, 510, 520);
         .};
 
     action abstract static bool AdapterClass.AdapterCanPutExit(int len)
         where 
         {.
-            Condition.In(len, 0, 16, 64, 128, 512, 516, 1024);
+            Condition.In(len, 510, 520);
         .};
 }
 
@@ -52,24 +54,24 @@ machine DefaultProgram() : Main where ForExploration = true
 // send data block
 machine SendProgram() : Main where ForExploration = true
 {
-    InitializeTestAdapter; AdapterSendWriteRequest; AdapterReceiveACK; AdapterSendDataBlock; (AdapterReceiveACK; AdapterSendDataBlock; AdapterCanPutExit;)+     
+    AdapterSendWriteRequest; AdapterReceiveACK; AdapterSendDataBlock; (AdapterReceiveACK; AdapterSendDataBlock; AdapterCanPutExit;)+     
 }
 
 // receive data block
 machine ReceiveProgram() : Main where ForExploration = true
 {
-    InitializeTestAdapter; AdapterSendReadRequest; AdapterReceiveDataBlock; AdapterSendACK; (AdapterReceiveDataBlock; AdapterSendACK; AdapterCanGetExit;)+
+    AdapterSendReadRequest; AdapterReceiveDataBlock; (AdapterSendACK; AdapterReceiveDataBlock; AdapterCanGetExit;)+
 }
 
 // send&receive checkers
 machine SendProgramWithCheckers() : Main where ForExploration = true
 {
-    InitializeTestAdapter; AdapterSendWriteRequest; AdapterReceiveACK; AdapterSendDataBlock; (AdapterReceiveACK; AdapterSendDataBlock; AdapterCanPutExit;)+ ||| Checker*    
+     AdapterSendWriteRequest; AdapterReceiveACK; AdapterSendDataBlock; (AdapterReceiveACK; AdapterSendDataBlock; AdapterCanPutExit;)+ ||| Checker*    
 }
 
 machine ReceiveProgramWithCheckers() : Main where ForExploration = true
 {
-    InitializeTestAdapter; AdapterSendReadRequest; AdapterReceiveDataBlock; AdapterSendACK; (AdapterReceiveDataBlock; AdapterSendACK; AdapterCanGetExit;)+ ||| Checker*
+    AdapterSendReadRequest; AdapterReceiveDataBlock; (AdapterSendACK; AdapterReceiveDataBlock; AdapterCanGetExit;)+ ||| Checker*
 }
 
 // slicing the scenarios    
