@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
 
 using TFTPClientNameSpace;
 
@@ -93,9 +94,9 @@ namespace Project1.TestAdapter
 
         static void AdapterSendDataBlock()
         {
-
-            //byte[] sndBuffer;
-            //client.sendDataBlock(fileStream, out sndBuffer);
+            BinaryReader fileStream = new BinaryReader(new FileStream(localFile, FileMode.Open, FileAccess.Read, FileShare.ReadWrite));
+            byte[] sndBuffer;
+            client.sendDataBlock(fileStream, out sndBuffer);
         }
 
         static void AdapterReceiveACK()
