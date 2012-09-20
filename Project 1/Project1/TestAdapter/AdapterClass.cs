@@ -65,11 +65,11 @@ namespace Project1.TestAdapter
         /// </summary>
         public static TFTPClient InitializeTestAdapter()
         {
-            TFTPClient c = new TFTPClient("127.0.0.1", 69);
-            c.initialize();
+            TFTPClient newClient = new TFTPClient("127.0.0.1", 69);
+            newClient.initialize();
 
             localFile = createLocalFilePath();
-            return c;
+            return newClient;
         }
 
         /// <summary>

@@ -6,7 +6,7 @@ using Microsoft.Modeling;
 using TFTPClientNameSpace;
 
 namespace Project1
-{   
+{
     static class ModelProgram
     {
         // state variable
