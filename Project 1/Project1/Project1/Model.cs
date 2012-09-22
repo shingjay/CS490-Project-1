@@ -35,7 +35,7 @@ namespace Project1
         [Rule(Action = "AdapterSendACK()")]
         static void SendACK()
         {
-            Condition.IsTrue(mode == TFTPClient.FSM_Modes.DATA_SENT);
+            Condition.IsTrue(mode == TFTPClient.FSM_Modes.DATA_RECEIVED);
             mode = TFTPClient.FSM_Modes.ACK_SENT;
         }
 

@@ -21,7 +21,7 @@ config Main
     switch StateBound = none;
     switch StepBound = 500;
     switch PathDepthBound = 500;
-    switch TestClassBase = "vs";
+   // switch TestClassBase = "vs";
     switch GeneratedTestPath = "..\\Project1.TestSuite";
     switch GeneratedTestNamespace = "Project1.TestSuite";
     switch ForExploration = false;

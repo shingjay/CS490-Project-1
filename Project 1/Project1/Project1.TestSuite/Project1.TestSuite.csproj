@@ -41,12 +41,6 @@
   </Target>
   -->
   <ItemGroup>
-    <Compile Include="ReceiveTestSuite.cs" />
-    <Compile Include="ReceiveWithCheckersTestSuite.cs" />
-    <Compile Include="SendTestSuite.cs" />
-    <Compile Include="SendWithCheckersTestSuite.cs" />
-  </ItemGroup>
-  <ItemGroup>
     <Reference Include="Microsoft.SpecExplorer.Runtime, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35,&#xD;&#xA; processorArchitecture=MSIL">
       <SpecificVersion>True</SpecificVersion>
       <Private>False</Private>
@@ -71,5 +65,8 @@
       <Project>{2FD32494-FCED-4EFB-8F4A-974B613C4442}</Project>
       <Name>Project1.TestAdapter</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="SendWithCheckersTestSuite.cs" />
   </ItemGroup>
 </Project>
